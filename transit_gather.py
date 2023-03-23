@@ -43,7 +43,7 @@ start = drv.Event()
 end = drv.Event()
 
 #for gather, for the threads in a block possible take one transit but each read and sum (T_N/no threads) elements, then synch, then sum and write to output
-# Naive gather kernel is fastest, however can speed up even more with tree-reduction, at the moment some thread idling caused by threads with largest number of adds. however approximate threads in a block share similar p
+# Naive gather kernel is fastest, approximate threads in a block share similar p
 
 mod = SourceModule("""
 
