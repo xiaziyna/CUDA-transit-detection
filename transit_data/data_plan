@@ -1,4 +1,34 @@
-use LC from year 3, sector 27, 28, 29
+Each TESS lightcurve is broken into 28-day segements called a sector.
+
+Very few lightcurves are continuously observed over multiple sectors, however the ones provided in this sample are. 
+If you would like a list of targets continuously observed over a full year contact me. 
+
+These lightcurves are called 2-minute (short-cadence) cadence lightcurves because samples are collected every 2-minutes. 
+
+One thing that is VERY important to note, is that a large quantity of lightcurve samples are missing/bad quality and need to be handled, 
+either by masking or setting to zero. The reason for all this missing data is due to the spacecraft operations, every 14 days the telescope
+under goes a day-long data downlink, during which it is not collecting new data. You need to bear in mind that if a 'detected' transit signal
+mostly occurs on missing cadences, it should be thrown out as being statistically weak. This is easy to handle and I will show you how.
+
+Lightcurves are stored as pickle files in a folder under the format y{year}_lightcurves/sector{sector} indicating the year and sector the lightcurve is observed over.
+3 sectors of data are provided for 1000 lightcurves, from year 3 of TESS observations. The sectors of data are sectors 27, 28 and 29.
+This sample of lightcurves is indexed from 0-999.
+
+(t_id, t_mag, detrend, time, time_bjd, ind_bad, transit_sim, cam_ccd), open('y%s_lightcurves/sector%s/lc_%s.p' % (year, sector, lc_index))
+
+t_id is the TESS ID and can be used to look up other properties of the target star, as well as the original lightcurves (use lightkurve to do this).
+t_mag is the TESS magnitude of the star (the brightness).
+detrend is the lightcurve - this lightcurve has been pre-processed using sim_lightcurves.py (will explain this below)
+time - the sample no.
+time_bjd - time value in the astrophysical units of BJD
+ind_bad - a binary mask which tells you which 'time' values should be thrown out or are missing (approximately 11% of all data, with 9% due to missing)
+transit_sim - the simulated transit signal (which is already 'injected' into detrend)
+cam_ccd - the camera and ccd this lightcurve was observed on, for this sector, this is needed to construct the noise model
+
+The simulated transit paramaters are in a file called transit_params in folder. 
+
+The noise model and associated covariance matrices are defined over individual sectors. 
+
 
 README
 
