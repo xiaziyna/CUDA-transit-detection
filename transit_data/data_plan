@@ -1,0 +1,18 @@
+use LC from year 3, sector 27, 28, 29
+
+README
+
+explain missing data/convention for handling?
+
+Label them from 1-1000
+Provide a list of TESS_ID and show them how they can download from lightkurve
+
+Inverse covariance should be full size with zeros for missing elements, same with y - gap fill with zeros? 
+insert these zeros after generating 
+
+Students should make sure that each calculated statistic has 3 non-zero transit events
+
+
+Useful codes: transit_fit
+
+        pickle.dump((t_id, t_mag, detrend, time, time_bjd, ind_bad, transit_sim, cam_ccd), open('y%s_lightcurves/sector%s/lc_%s.p' % (year, sector, lc_index), 'wb'))
