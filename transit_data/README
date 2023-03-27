@@ -4,3 +4,6 @@ Scripts to generate inverse noise covariance matrices with TESS lightcurves.
 
 Sample of 1000 TESS 2-min lightcurves, from year 3, over 28-day long sectors: 27, 28, 29. 
 Injected with transit signals in the period range 0.5 - 20 days.
+
+https://drive.google.com/drive/folders/12oy-uaxlgeDa_q9vKGjQxZgejOuWjpf4?usp=share_link - Please download the data here
+Place the folders in 'transit_data' folder
