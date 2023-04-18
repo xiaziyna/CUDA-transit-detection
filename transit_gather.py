@@ -5,6 +5,7 @@ import time
 import numpy as np
 from scipy.ndimage import convolve
 
+# Developed by Jamila Taaki
 # Prototype CUDA kernel for efficient computation of a transit search over gridded candidate search space: y^T K t / sqrt(t K t^T)
 # The output (for fixed d) is a matrix (N/2, N/2) of detection statistics, row, col = period, epoch
 # Scatter scatterism (each task takes an element of the noise covariance and 'scatters' it into transit detection tests)
