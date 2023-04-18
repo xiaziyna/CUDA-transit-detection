@@ -10,6 +10,8 @@ either by masking or setting to zero. The reason for all this missing data is du
 under goes a day-long data downlink, during which it is not collecting new data. You need to bear in mind that if a 'detected' transit signal
 mostly occurs on missing cadences, it should be thrown out as being statistically weak. This is easy to handle and I will show you how.
 
+TESS - transiting exoplanet survey satellite, 4 years of observations. I've used data from the third year. 
+
 Lightcurves are stored as pickle files in a folder under the format y{year}_lightcurves/sector{sector} indicating the year and sector the lightcurve is observed over.
 3 sectors of data are provided for 1000 lightcurves, from year 3 of TESS observations. The sectors of data are sectors 27, 28 and 29.
 This sample of lightcurves is indexed from 0-999.
@@ -46,3 +48,13 @@ Students should make sure that each calculated statistic has 3 non-zero transit 
 Useful codes: transit_fit
 
         pickle.dump((t_id, t_mag, detrend, time, time_bjd, ind_bad, transit_sim, cam_ccd), open('y%s_lightcurves/sector%s/lc_%s.p' % (year, sector, lc_index), 'wb'))
+
+
+Transit parameters: orbital period, transit duration, start time/epoch -> T is the set of all transits generated over all possible parameters. 
+orbital periods -> P = [1 day, length of data/3]
+transit duration -> durs = np.array([1, 2, 3, 4, 6, 8, 10, 12, 14, 16]) * 30 min
+epoch -> [0, P]
+
+N ~ 30*24*60/2
+C ~ N*N
+y ~ N
