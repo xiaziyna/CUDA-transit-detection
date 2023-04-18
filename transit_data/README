@@ -7,3 +7,6 @@ Injected with transit signals in the period range 0.5 - 20 days.
 
 https://drive.google.com/drive/folders/12oy-uaxlgeDa_q9vKGjQxZgejOuWjpf4?usp=share_link - Please download the data here
 Place the folders in 'transit_data' folder
+
+Run cov_inv for specific sector and lc_index,
+Remember to mask the lightcurve 'detrend' to ignore 'bad_data'
